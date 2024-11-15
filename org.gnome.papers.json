@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Papers",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
+    "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -21,12 +21,7 @@
         "--filesystem=xdg-run/gvfsd"
     ],
     "build-options": {
-        "append-path": "/usr/lib/sdk/rust-stable/bin:",
-        "build-args": [
-            "--share=network"
-        ],
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g",
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
         "env": {
             "V": "1"
         }
@@ -167,12 +162,15 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "branch": "main",
-                    "url": "https://gitlab.gnome.org/GNOME/Incubator/papers.git"
-                }
-            ]
-        },
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/papers/47/papers-47.0.tar.xz",
+                    "sha256": "cf69eb0a3717fe354011616e2f602383814ff57b7a9eacf306c676e64d8f6666",
+                    "x-checker-data": {
+                        "is-important": true,
+                        "type": "gnome",
+                        "name": "papers"
+                    }
+                },
         {
             "name": "customizations",
             "buildsystem": "meson",
