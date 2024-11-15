@@ -1,5 +1,5 @@
 project('org.gnome.Papers',
-  meson_version: '>= 0.57.0'
+  meson_version: '>= 0.59.0'
 )
 
 subdir('data')
