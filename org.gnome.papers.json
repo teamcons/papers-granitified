@@ -21,7 +21,12 @@
         "--filesystem=xdg-run/gvfsd"
     ],
     "build-options": {
-        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "append-path": "/usr/lib/sdk/rust-stable/bin:",
+        "build-args": [
+            "--share=network"
+        ],
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
         "env": {
             "V": "1"
         }
@@ -130,24 +135,6 @@
             ]
         },
         {
-            "name": "libgxps",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Denable-test=false",
-                "-Ddisable-introspection=true"
-            ],
-            "cleanup": [
-                "/bin"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz",
-                    "sha256": "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
-                }
-            ]
-        },
-        {
             "name": "papers",
             "buildsystem": "meson",
             "config-opts": [
@@ -162,22 +149,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/papers/47/papers-47.0.tar.xz",
-                    "sha256": "cf69eb0a3717fe354011616e2f602383814ff57b7a9eacf306c676e64d8f6666",
-                    "x-checker-data": {
-                        "is-important": true,
-                        "type": "gnome",
-                        "name": "papers"
-                    }
-                },
-        {
-            "name": "customizations",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "dir",
-                    "path": "."
+                    "type": "git",
+                    "branch": "main",
+                    "url": "https://gitlab.gnome.org/GNOME/Incubator/papers.git"
                 }
             ]
         }
